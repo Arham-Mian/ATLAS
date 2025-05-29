@@ -153,6 +153,7 @@ Task 5: What are the different Network types?
 
 5. CAN (Campus Area Network): A network that connects networks across multiple buildings within a campus, such as a university or business campus.
 
+=============================================================================
 
 Task 6: What are the types of servers?
 
@@ -172,11 +173,13 @@ Task 6: What are the types of servers?
 
 8. Application Server: Hosts and runs applications, providing services to client applications.
 
+=============================================================================
 
 Task 7: What do you know about DNS?
 
 The Domain Name System (DNS) is a hierarchical system that translates human-readable domain names (like [www.example.com](http://www.example.com)) into IP addresses (like 192.168.1.1). This process allows browsers to load internet resources by converting domain names into machine-readable IP addresses.
 
+=============================================================================
 
 Task 8: What is TCP and UDP? What is the difference?
 
@@ -193,7 +196,7 @@ Differences:
 | Speed       | Slower due to overhead             | Faster due to minimal overhead  |
 | Use Cases   | Web browsing, email, file transfer | Streaming, gaming, VoIP         |
 
-
+=============================================================================
 
 Task 9: What do you know about MAC address? What is the difference between MAC address and IP address?
 
@@ -210,7 +213,7 @@ Differences:
 | Permanence | Typically permanent         | Can change (dynamic IP)                   |
 | Scope      | Local network communication | Global network communication              |
 
-
+=============================================================================
 
 Task 10: What is OSI model?
 
@@ -224,7 +227,7 @@ The OSI (Open Systems Interconnection) model is a conceptual framework used to u
 6. Presentation Layer: Translates data formats between the application and transport layers.
 7. Application Layer: Provides network services directly to end-users.
 
-
+=============================================================================
 
 Task 11: What is an IPv4 address? What are the different classes of IPv4?
 
@@ -238,7 +241,7 @@ Classes of IPv4:
 * Class D: Reserved for multicast groups.
 * Class E: Reserved for experimental purposes.
 
-
+=============================================================================
 
 Task 12: What are the advantages of using VPN?
 
@@ -247,7 +250,7 @@ Task 12: What are the advantages of using VPN?
 3. Access Restricted Content: Allows access to geo-blocked websites and services.
 4. Safe Public Wi-Fi Use: Protects data when connected to unsecured networks.
 
-
+=============================================================================
 
 Task 13: Types of VPN
 
@@ -256,18 +259,20 @@ Task 13: Types of VPN
 3. Intranet VPN: Connects multiple internal networks within an organization.
 4. Extranet VPN: Connects an organization's internal network to external networks, like partners.
 
+=============================================================================
 
 Task 14: Node and Link
 
 * Node: A device or data point in a network, such as a computer or router.
 * Link: The communication pathway that connects nodes in a network.
 
+=============================================================================
 
 Task 15: Topology means
 
 Topology refers to the arrangement or layout of elements (links, nodes, etc.) in a computer network. It defines how different network devices and components are connected and how data flows within the network.
 
-
+=============================================================================
 
 Task 16: Different types of network topology
 
@@ -277,14 +282,14 @@ Task 16: Different types of network topology
 4. Mesh Topology: Devices are interconnected; provides high redundancy.
 5. Hybrid Topology: Combination of two or more topologies; flexible and scalable.
 
-
+=============================================================================
 
 Task 17: What is extended bus topology? It's Tree Topology.
 
 * Extended Bus Topology: This is an enhanced version of the basic bus topology where additional nodes are connected to the main bus via secondary lines. It helps to expand the network without much reconfiguration.
 * Tree Topology: A hybrid structure combining characteristics of star and bus topologies. It has a root node and branching hierarchical nodes, making it scalable and suitable for large networks like universities.
 
-
+=============================================================================
 
 Task 18: What is the use of a router and how is it different from a gateway?
 
@@ -296,6 +301,7 @@ Difference:
 * Routers operate within similar networks (e.g., two IP networks).
 * Gateways connect dissimilar networks (e.g., IP to ATM).
 
+=============================================================================
 
 Task 19: Explain SMTP Protocol with diagram.
 
@@ -304,6 +310,7 @@ Task 19: Explain SMTP Protocol with diagram.
 * A basic flow:
   Email Client (Outlook/Gmail) → SMTP Server → Recipient's SMTP Server → Recipient’s Inbox
   
+=============================================================================
 
 Task 20: Differentiate between OSI and TCP/IP
 
@@ -317,14 +324,14 @@ Task 20: Differentiate between OSI and TCP/IP
 OSI: Application, Presentation, Session, Transport, Network, Data Link, Physical
 TCP/IP: Application, Transport, Internet, Network Access
 
-
+=============================================================================
 
 Task 21: HTTP and HTTPS
 
 * HTTP (Hypertext Transfer Protocol): Used for transferring data over the web. Data is not encrypted.
 * HTTPS (HTTP Secure): An extension of HTTP with encryption via SSL/TLS. Used for secure communication (banking, login pages, etc.).
 
-
+=============================================================================
 
 Task 22: What is Low Level Design and High Level Design? Explain.
 
@@ -336,7 +343,7 @@ Example:
 * HLD: "We will use a three-tier architecture with a web frontend, middleware, and a MySQL database."
 * LLD: "Class ‘User’ will have attributes: name, email, password, and methods: login(), register()."
 
-
+=============================================================================
 
 Task 23: What is SRS (Software Requirement Specification)?
 
