@@ -54,7 +54,7 @@ Use Case: Small projects with well-defined requirements.
 
 Image:
 
-![Waterfall Model](https://www.tutorialspoint.com/sdlc/images/waterfall_model.jpg)
+![Waterfall Model](images/1.jpg)
 
 
 
@@ -71,7 +71,7 @@ Use Case: Healthcare, aerospace, embedded systems.
 
 Image:
 
-![V-Model](https://www.geeksforgeeks.org/wp-content/uploads/V-Model-in-Software-Testing.png)
+![V-Model](images/2.webp)
 
 
 3. Incremental Model
@@ -87,7 +87,7 @@ Use Case:Medium to large projects where core features need quick delivery.
 
 Image:
 
-![Incremental Model](https://static.javatpoint.com/tutorial/software-engineering/images/incremental-model1.png)
+![Incremental Model](images/3.png)
 
 4. Iterative Model
 
@@ -101,7 +101,7 @@ Use Case: Startups and evolving projects.
 
 Image:
 
-![Iterative Model](https://static.javatpoint.com/tutorial/software-engineering/images/iterative-model1.png)
+![Iterative Model](images/4.png)
 
 
 5. Agile Model
@@ -117,7 +117,7 @@ Use Case: Modern web/mobile apps, startups, user-focused projects.
 
 Image:
 
-![Agile Model](https://agilemanifesto.org/agile-process.png)
+![Agile Model](images/5.jpg)
 
 
 6. Spiral Model
@@ -132,6 +132,8 @@ Description:
 Use Case: Defense, large ERP systems, R\&D projects.
 
 Image:
+
+![Spiral Model](images/6.webp)
 
 =============================================================================
 
