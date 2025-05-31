@@ -112,3 +112,31 @@ Alternatively, to add a specific file:
 git add filename.txt
 
 =============================================================================
+
+Task 10  : Installtion and configuration of Git and Github 
+
+Done the installation and configuration of git.
+
+=============================================================================
+
+Task 11 : Show functionality of add function 
+
+Screenshot:
+
+![Add Function](images/7.png)
+
+=============================================================================
+
+Task 12 : Show functionaliity of commit function 
+
+Screenshot:
+
+![Commit](images/8.png)
+
+=============================================================================
+
+Task 13 : Show functionality of push function 
+
+Screenshot: 
+
+![Push Function](images/9.png)
