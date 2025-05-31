@@ -1,0 +1,1562 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\Lenovo> mongod --version
+db version v8.0.9
+Build Info: {
+    "version": "8.0.9",
+    "gitVersion": "f882ef816d531ecfbb593843e4c554fda90ca416",
+    "modules": [],
+    "allocator": "tcmalloc-gperf",
+    "environment": {
+        "distmod": "windows",
+        "distarch": "x86_64",
+        "target_arch": "x86_64"
+    }
+}
+PS C:\Users\Lenovo> moongosh
+moongosh : The term 'moongosh' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ moongosh
++ ~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (moongosh:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Lenovo> mongosh
+Current Mongosh Log ID: 683356ccbc8208f7536c4bcf
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.1
+Using MongoDB:          8.0.9
+Using Mongosh:          2.5.1
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2025-05-21T15:35:14.624+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show dbs
+Amazon  80.00 KiB
+admin   40.00 KiB
+config  72.00 KiB
+local   72.00 KiB
+test> use amazon
+switched to db amazon
+amazon> show collections
+
+amazon> show collections
+
+amazon> use amazon
+already on db amazon
+amazon> show collectoion
+MongoshInvalidInputError: [COMMON-10001] 'collectoion' is not a valid argument for "show".
+amazon> show collection
+MongoshInvalidInputError: [COMMON-10001] 'collection' is not a valid argument for "show".
+amazon> show collections
+
+amazon> show collections
+
+amazon> Use Amazon
+Uncaught:
+SyntaxError: Missing semicolon. (1:3)
+
+> 1 | Use Amazon
+    |    ^
+
+
+car_details> db.cars.insertMany([
+...   {
+...     maker: "Toyota",
+...     model: "Corolla",
+...     year: 2021,
+...     price: 20000,
+...     available: true
+...   },
+...   {
+...     maker: "Honda",
+...     model: "Civic",
+...     year: 2020,
+...     price: 22000,
+...     available: false
+...   },
+...   {
+...     maker: "Tata",
+...     model: "Nexon",
+...     year: 2023,
+...     price: 15000,
+...     available: true
+...   },
+...   {
+...     maker: "Ford",
+...     model: "Mustang",
+...     year: 2019,
+...     price: 35000,
+...     available: false
+...   },
+...   {
+...     maker: "Tesla",
+...     model: "Model 3",
+...     year: 2024,
+...     price: 45000,
+...     available: true
+...   }
+... ])
+...
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68336253bc8208f7536c4bd0'),
+    '1': ObjectId('68336253bc8208f7536c4bd1'),
+    '2': ObjectId('68336253bc8208f7536c4bd2'),
+    '3': ObjectId('68336253bc8208f7536c4bd3'),
+    '4': ObjectId('68336253bc8208f7536c4bd4')
+  }
+}
+car_details> db.cars.find()
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd0'),
+    maker: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 20000,
+    available: true
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd1'),
+    maker: 'Honda',
+    model: 'Civic',
+    year: 2020,
+    price: 22000,
+    available: false
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd2'),
+    maker: 'Tata',
+    model: 'Nexon',
+    year: 2023,
+    price: 15000,
+    available: true
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd3'),
+    maker: 'Ford',
+    model: 'Mustang',
+    year: 2019,
+    price: 35000,
+    available: false
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd4'),
+    maker: 'Tesla',
+    model: 'Model 3',
+    year: 2024,
+    price: 45000,
+    available: true
+  }
+]
+car_details> db.cars.findOne()
+{
+  _id: ObjectId('68336253bc8208f7536c4bd0'),
+  maker: 'Toyota',
+  model: 'Corolla',
+  year: 2021,
+  price: 20000,
+  available: true
+}
+car_details> db.cars.updateOne(
+... { model : "Nexon" },
+... { $set : {color: "Red"}}
+... );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.findOne( "model" : "Nexon")
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:25)
+
+> 1 | db.cars.findOne( "model" : "Nexon")
+    |                          ^
+  2 |
+
+car_details> db.cars.findOne( {"model" : "Nexon"})
+{
+  _id: ObjectId('68336253bc8208f7536c4bd2'),
+  maker: 'Tata',
+  model: 'Nexon',
+  year: 2023,
+  price: 15000,
+  available: true,
+  color: 'Red'
+}
+car_details> db.cars.updateOne(
+... { model : "Nexon" } , {$set:{feature : "Ventilated seats"}}
+... );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.findOne({"Model" : "Nexon"})
+null
+car_details> db.cars.findOne({"model" : "Nexon"})
+{
+  _id: ObjectId('68336253bc8208f7536c4bd2'),
+  maker: 'Tata',
+  model: 'Nexon',
+  year: 2023,
+  price: 15000,
+  available: true,
+  color: 'Red',
+  feature: 'Ventilated seats'
+}
+car_details> db.cars.updateOne(
+... { model : "Nexon"},
+... {$push : { feature : "reverse camera"}}
+... );
+MongoServerError: The field 'feature' must be an array but is of type string in document {_id: ObjectId('68336253bc8208f7536c4bd2')}
+car_details> db.cars.updateOne( { model: "Nexon" }, { $set: { feature: "reverse camera" } } );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.findOne (
+... {"model" : "Nexon})
+Uncaught:
+SyntaxError: Unterminated string constant. (2:11)
+
+  1 | db.cars.findOne (
+> 2 | {"model" : "Nexon})
+    |            ^
+  3 |
+
+car_details> db.cars.findOne ( {"model" : "Nexon"})
+{
+  _id: ObjectId('68336253bc8208f7536c4bd2'),
+  maker: 'Tata',
+  model: 'Nexon',
+  year: 2023,
+  price: 15000,
+  available: true,
+  color: 'Red',
+  feature: 'reverse camera'
+}
+car_details> db.cars.updateOne(
+...   { model: "Nexon" },                  // Filter
+...   { $set: { feature: ["reverse camera", "ventilated seats"] } }  // New array
+... )
+...
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.findOne ({"model" : "Nexon"})
+{
+  _id: ObjectId('68336253bc8208f7536c4bd2'),
+  maker: 'Tata',
+  model: 'Nexon',
+  year: 2023,
+  price: 15000,
+  available: true,
+  color: 'Red',
+  feature: [ 'reverse camera', 'ventilated seats' ]
+}
+car_details> db.cars.updateOne(
+... {"model" : "Nexon"},
+... {$put: { "features" : "touchscreen display"}
+... );
+Uncaught:
+SyntaxError: Unexpected token, expected "," (4:0)
+
+  2 | {"model" : "Nexon"},
+  3 | {$put: { "features" : "touchscreen display"}
+> 4 | );
+    | ^
+  5 |
+
+car_details> db.cars.updateOne(
+...   { model: "Nexon" },                  // Filter
+...   { $set: { feature: ["reverse camera", "ventilated seats"] } }  // New array
+... )
+...
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+car_details> car_details> db.cars.updateOne(
+... ... {"model" : "Nexon"},
+... ... {$put: { "features" : "touchscreen display"}
+... z
+Uncaught:
+SyntaxError: Unexpected token, expected "," (4:0)
+
+  2 | ... {"model" : "Nexon"},
+  3 | ... {$put: { "features" : "touchscreen display"}
+> 4 | z
+    | ^
+  5 |
+
+car_details> db.cars.updateOne (
+... {"model" : " Nexon"},
+... {$push : { "features" : "display"}
+... );
+Uncaught:
+SyntaxError: Unexpected token, expected "," (4:0)
+
+  2 | {"model" : " Nexon"},
+  3 | {$push : { "features" : "display"}
+> 4 | );
+    | ^
+  5 |
+
+car_details> db.cars.updateOne(
+...   { "model": "Nexon" },
+...   { $push: { "features": "display" } }
+... )
+...
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.findOne ( "Model " : " Nexon")
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:27)
+
+> 1 | db.cars.findOne ( "Model " : " Nexon")
+    |                            ^
+  2 |
+
+car_details> db.cars.findOne ( { "model" : " Nexon" })
+null
+car_details> car_details> db.cars.findOne ({"model" : "Nexon"})
+ReferenceError: car_details is not defined
+car_details> db.cars.findOne ({"model" : "Nexon"})
+{
+  _id: ObjectId('68336253bc8208f7536c4bd2'),
+  maker: 'Tata',
+  model: 'Nexon',
+  year: 2023,
+  price: 15000,
+  available: true,
+  color: 'Red',
+  feature: [ 'reverse camera', 'ventilated seats' ],
+  features: [ 'display' ]
+}
+car_details> db.cars.updateOne(
+...   { model: "Nexon" },
+...   { $unset: { features: "" } }
+... )
+
+car_details> db.cars.updateOne (
+... {"model" : "Corolla"},
+... {$set : { "Fuel_Type" : "Petrol" }},
+... );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.findOne ( {"model" : "Corolla"})
+{
+  _id: ObjectId('68336253bc8208f7536c4bd0'),
+  maker: 'Toyota',
+  model: 'Corolla',
+  year: 2021,
+  price: 20000,
+  available: true,
+  Fuel_Type: 'Petrol'
+}
+car_details> db.cars.updateOne (
+... {"model" : "Civic"},
+... {$set : {"Fuel_Type" : "Diesel"}},
+... );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.updateOne (
+... ... {"model" : "Civic"},
+... ... {$set : {"Fuel_Type" : "Diesel"}},
+...
+... );
+TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))
+car_details> db.cars.updateOne( { "model": "Mustang" }, { $set: { "Fuel_Type": "Diesel" } } );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.updateOne( { "model": "Model 3" }, { $set: { "Fuel_Type": "Electricity" } } );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.updateOne( { "model": "Nexon" }, { $set: { "Fuel_Type": "petrol" } } );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.find()
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd0'),
+    maker: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 20000,
+    available: true,
+    Fuel_Type: 'Petrol'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd1'),
+    maker: 'Honda',
+    model: 'Civic',
+    year: 2020,
+    price: 22000,
+    available: false,
+    Fuel_Type: 'Diesel'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd2'),
+    maker: 'Tata',
+    model: 'Nexon',
+    year: 2023,
+    price: 15000,
+    available: true,
+    color: 'Red',
+    feature: [ 'reverse camera', 'ventilated seats', 'display' ],
+    Fuel_Type: 'petrol'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd3'),
+    maker: 'Ford',
+    model: 'Mustang',
+    year: 2019,
+    price: 35000,
+    available: false,
+    Fuel_Type: 'Diesel'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd4'),
+    maker: 'Tesla',
+    model: 'Model 3',
+    year: 2024,
+    price: 45000,
+    available: true,
+    Fuel_Type: 'Electricity'
+  }
+]
+car_details> db.cars.updateMany ({ Fuel_Type : "Diesel" } , {$set : { alloys : "Yes" }});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+car_details> db.cars.find()
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd0'),
+    maker: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 20000,
+    available: true,
+    Fuel_Type: 'Petrol'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd1'),
+    maker: 'Honda',
+    model: 'Civic',
+    year: 2020,
+    price: 22000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd2'),
+    maker: 'Tata',
+    model: 'Nexon',
+    year: 2023,
+    price: 15000,
+    available: true,
+    color: 'Red',
+    feature: [ 'reverse camera', 'ventilated seats', 'display' ],
+    Fuel_Type: 'petrol'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd3'),
+    maker: 'Ford',
+    model: 'Mustang',
+    year: 2019,
+    price: 35000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd4'),
+    maker: 'Tesla',
+    model: 'Model 3',
+    year: 2024,
+    price: 45000,
+    available: true,
+    Fuel_Type: 'Electricity'
+  }
+]
+car_details> db.cars.find()
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd0'),
+    maker: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 20000,
+    available: true,
+    Fuel_Type: 'Petrol'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd1'),
+    maker: 'Honda',
+    model: 'Civic',
+    year: 2020,
+    price: 22000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes'
+  },
+
+car_details> db.cars.find()
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd0'),
+    maker: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 20000,
+    available: true,
+    Fuel_Type: 'Petrol'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd1'),
+    maker: 'Honda',
+    model: 'Civic',
+    year: 2020,
+    price: 22000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd2'),
+    maker: 'Tata',
+    model: 'Nexon',
+    year: 2023,
+    price: 15000,
+    available: true,
+    color: 'Red',
+    feature: [ 'reverse camera', 'ventilated seats', 'display' ],
+    Fuel_Type: 'petrol'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd3'),
+    maker: 'Ford',
+    model: 'Mustang',
+    year: 2019,
+    price: 35000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd4'),
+    maker: 'Tesla',
+    model: 'Model 3',
+    year: 2024,
+    price: 45000,
+    available: true,
+    Fuel_Type: 'Electricity'
+  }
+]
+car_details> db.cars.updateOne (
+... {$push :{features :{ $each: ["Wireless charging" , "Voice control"]}}},
+... );
+MongoInvalidArgumentError: Update document requires atomic operators
+car_details> db.cars.updateOne( { $push: { features: { $each: ["Wireless charging", "Voice control"] } } } )
+MongoInvalidArgumentError: Update document requires atomic operators
+car_details> db.cars.updateOne (
+... {model : "Nexon"},
+... { $push: { features: { $each: ["Wireless charging", "Voice control"] } } } )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.findOne ( { model : "Nexon" })
+{
+  _id: ObjectId('68336253bc8208f7536c4bd2'),
+  maker: 'Tata',
+  model: 'Nexon',
+  year: 2023,
+  price: 15000,
+  available: true,
+  color: 'Red',
+  feature: [ 'reverse camera', 'ventilated seats', 'display' ],
+  Fuel_Type: 'petrol',
+  features: [ 'Wireless charging', 'Voice control' ]
+}
+car_details> db.cars.updateOne(
+...   { model: "Nexon" },
+...   { $unset: { feature: "" } }
+... )
+... }}}}}}
+Uncaught:
+SyntaxError: Unexpected token (5:0)
+
+  3 |   { $unset: { feature: "" } }
+  4 | )
+
+car_details> db.cars.findOne ( { model : "Nexon"})
+{
+  _id: ObjectId('68336253bc8208f7536c4bd2'),
+  maker: 'Tata',
+  model: 'Nexon',
+  year: 2023,
+  price: 15000,
+  available: true,
+  color: 'Red',
+  feature: [
+    'reverse camera',
+    'ventilated seats',
+    'display',
+    'Wireless charging',
+    'Voice control'
+
+car_details> db.cars.updateOne (
+... { model : " Nexon " },
+... { $set : { color : "Black"}}
+... )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+
+car_details> db.cars.updateMany ({} , { $set : { color : "blue"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 5,
+  modifiedCount: 5,
+  upsertedCount: 0
+}
+car_details> db.cars.find()
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd0'),
+    maker: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 20000,
+    available: true,
+    Fuel_Type: 'Petrol',
+    color: 'blue'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd1'),
+    maker: 'Honda',
+    model: 'Civic',
+    year: 2020,
+    price: 22000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd2'),
+    maker: 'Tata',
+    model: 'Nexon',
+    year: 2023,
+    price: 15000,
+    available: true,
+    feature: [
+      'reverse camera',
+      'ventilated seats',
+      'display',
+      'Wireless charging',
+      'Voice control'
+    ],
+    Fuel_Type: 'petrol',
+    color: 'blue'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd3'),
+    maker: 'Ford',
+    model: 'Mustang',
+    year: 2019,
+    price: 35000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd4'),
+    maker: 'Tesla',
+    model: 'Model 3',
+    year: 2024,
+    price: 45000,
+    available: true,
+    Fuel_Type: 'Electricity',
+    color: 'blue'
+  }
+]
+car_details> db.cars.updateMany ( { model : "Venue"}, {$set : {Maker : "Hyundai"}} , {upsert : true  } )
+{
+  acknowledged: true,
+  insertedId: ObjectId('6834909bedfdc0b5f12d8a0f'),
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 1
+}
+car_details> db.cars.find()
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd0'),
+    maker: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 20000,
+    available: true,
+    Fuel_Type: 'Petrol',
+    color: 'blue'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd1'),
+    maker: 'Honda',
+    model: 'Civic',
+    year: 2020,
+    price: 22000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd2'),
+    maker: 'Tata',
+    model: 'Nexon',
+    year: 2023,
+    price: 15000,
+    available: true,
+    feature: [
+      'reverse camera',
+      'ventilated seats',
+      'display',
+      'Wireless charging',
+      'Voice control'
+    ],
+    Fuel_Type: 'petrol',
+    color: 'blue'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd3'),
+    maker: 'Ford',
+    model: 'Mustang',
+    year: 2019,
+    price: 35000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue'
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd4'),
+    maker: 'Tesla',
+    model: 'Model 3',
+    year: 2024,
+    price: 45000,
+    available: true,
+    Fuel_Type: 'Electricity',
+    color: 'blue'
+  },
+  {
+    _id: ObjectId('6834909bedfdc0b5f12d8a0f'),
+    model: 'Venue',
+    Maker: 'Hyundai'
+  }
+]
+car_details> show collections
+cars
+car_details> db.test.insertOne({date : new Date ()})
+{
+  acknowledged: true,
+
+car_details> db.cars.find ( { "engine" { $gt : 1300 }})
+Uncaught:
+SyntaxError: Unexpected token (1:26)
+
+> 1 | db.cars.find ( { "engine" { $gt : 1300 }})
+    |                           ^
+  2 |
+
+car_details> db.cars.updateOne(
+...   { model: "Corolla" },
+...   {
+...     $set: {
+...       engine: {
+...         type: "Naturally Aspirated Petrol",
+...         cc: 1798,
+...         torque: "173Nm"
+...       }
+...     }
+...   }
+... )
+...
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.updateOne(
+...   { model: "Civic" },
+...   {
+...     $set: {
+...       engine: {
+...         type: "Turbocharged Petrol",
+...         cc: 1498,
+...         torque: "220Nm"
+...       }
+...     }
+...   }
+... )
+...
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.updateOne(
+...   { model: "Nexon" },
+...   {
+...     $set: {
+...       engine: {
+...         type: "Turbocharged Petrol",
+...         cc: 1199,
+...         torque: "170Nm"
+...       }
+...     }
+...   }
+... )
+...
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.updateOne(
+...   { model: "Mustang" },
+...   {
+...     $set: {
+...       engine: {
+...         type: "Naturally Aspirated Petrol V8",
+...         cc: 4951,
+...         torque: "556Nm"
+...       }
+...     }
+...   }
+... )
+...
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.updateOne(
+...   { model: "Model 3" },
+...   {
+...     $set: {
+...       engine: {
+...         type: "Electric",
+...         cc: null,
+...         torque: "450Nm"
+...       }
+...     }
+...   }
+... )
+...
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+car_details> db.cars.find ()
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd0'),
+    maker: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 20000,
+    available: true,
+    Fuel_Type: 'Petrol',
+    color: 'blue',
+    engine: { type: 'Naturally Aspirated Petrol', cc: 1798, torque: '173Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd1'),
+    maker: 'Honda',
+    model: 'Civic',
+    year: 2020,
+    price: 22000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue',
+    engine: { type: 'Turbocharged Petrol', cc: 1498, torque: '220Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd2'),
+    maker: 'Tata',
+    model: 'Nexon',
+    year: 2023,
+    price: 15000,
+    available: true,
+    feature: [
+      'reverse camera',
+      'ventilated seats',
+      'display',
+      'Wireless charging',
+      'Voice control'
+    ],
+    Fuel_Type: 'petrol',
+    color: 'blue',
+    engine: { type: 'Turbocharged Petrol', cc: 1199, torque: '170Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd3'),
+
+car_details> db.cars.find({"engine.cc" : {$gt:100}})
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd0'),
+    maker: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 20000,
+    available: true,
+    Fuel_Type: 'Petrol',
+    color: 'blue',
+    engine: { type: 'Naturally Aspirated Petrol', cc: 1798, torque: '173Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd1'),
+    maker: 'Honda',
+    model: 'Civic',
+    year: 2020,
+    price: 22000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue',
+    engine: { type: 'Turbocharged Petrol', cc: 1498, torque: '220Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd2'),
+    maker: 'Tata',
+    model: 'Nexon',
+    year: 2023,
+    price: 15000,
+    available: true,
+    feature: [
+      'reverse camera',
+      'ventilated seats',
+      'display',
+      'Wireless charging',
+      'Voice control'
+    ],
+    Fuel_Type: 'petrol',
+    color: 'blue',
+    engine: { type: 'Turbocharged Petrol', cc: 1199, torque: '170Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd3'),
+    maker: 'Ford',
+    model: 'Mustang',
+    year: 2019,
+    price: 35000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue',
+    engine: {
+      type: 'Naturally Aspirated Petrol V8',
+      cc: 4951,
+      torque: '556Nm'
+    }
+  }
+]
+car_details> db.cars.insertOne({
+...   maker: "Hyundai",
+...   model: "Venue",
+...   year: 2022,
+...   price: 16000,
+...   available: true,
+...   engine: {
+...     type: "Turbocharged Petrol",
+...     cc: 998,
+...     torque: "172Nm"
+...   },
+...   color: "White",
+...   features: ["Touchscreen", "Wireless Android Auto", "Cruise Control"]
+... })
+...
+{
+  acknowledged: true,
+  insertedId: ObjectId('6834b18ebc8208f7536c4bd7')
+}
+car_details> db.cars.find({ model: "Venue", maker: "Hyundai" }).pretty()
+[
+  {
+    _id: ObjectId('6834b18ebc8208f7536c4bd7'),
+    maker: 'Hyundai',
+    model: 'Venue',
+    year: 2022,
+    price: 16000,
+    available: true,
+    engine: { type: 'Turbocharged Petrol', cc: 998, torque: '172Nm' },
+    color: 'White',
+    features: [ 'Touchscreen', 'Wireless Android Auto', 'Cruise Control' ]
+  }
+]
+car_details> db.cars.deleteOne({
+...   model: "Venue",
+...   maker: "Hyundai",
+...   year: { $exists: false }
+... })
+...
+{ acknowledged: true, deletedCount: 0 }
+car_details> db.cars.find ()
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd0'),
+    maker: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 20000,
+    available: true,
+    Fuel_Type: 'Petrol',
+    color: 'blue',
+    engine: { type: 'Naturally Aspirated Petrol', cc: 1798, torque: '173Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd1'),
+    maker: 'Honda',
+    model: 'Civic',
+    year: 2020,
+    price: 22000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue',
+    engine: { type: 'Turbocharged Petrol', cc: 1498, torque: '220Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd2'),
+    maker: 'Tata',
+    model: 'Nexon',
+    year: 2023,
+    price: 15000,
+    available: true,
+    feature: [
+      'reverse camera',
+      'ventilated seats',
+      'display',
+      'Wireless charging',
+      'Voice control'
+    ],
+    Fuel_Type: 'petrol',
+    color: 'blue',
+    engine: { type: 'Turbocharged Petrol', cc: 1199, torque: '170Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd3'),
+    maker: 'Ford',
+    model: 'Mustang',
+    year: 2019,
+    price: 35000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue',
+    engine: {
+      type: 'Naturally Aspirated Petrol V8',
+      cc: 4951,
+      torque: '556Nm'
+    }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd4'),
+    maker: 'Tesla',
+    model: 'Model 3',
+    year: 2024,
+    price: 45000,
+    available: true,
+    Fuel_Type: 'Electricity',
+    color: 'blue',
+    engine: { type: 'Electric', cc: null, torque: '450Nm' }
+  },
+  {
+    _id: ObjectId('6834909bedfdc0b5f12d8a0f'),
+    model: 'Venue',
+    Maker: 'Hyundai'
+  },
+  {
+    _id: ObjectId('6834b18ebc8208f7536c4bd7'),
+    maker: 'Hyundai',
+    model: 'Venue',
+
+car_details> db.cars.find()
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd0'),
+    maker: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 20000,
+    available: true,
+    Fuel_Type: 'Petrol',
+    color: 'blue',
+    engine: { type: 'Naturally Aspirated Petrol', cc: 1798, torque: '173Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd1'),
+    maker: 'Honda',
+    model: 'Civic',
+    year: 2020,
+    price: 22000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue',
+    engine: { type: 'Turbocharged Petrol', cc: 1498, torque: '220Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd2'),
+    maker: 'Tata',
+    model: 'Nexon',
+    year: 2023,
+    price: 15000,
+    available: true,
+    feature: [
+      'reverse camera',
+      'ventilated seats',
+      'display',
+      'Wireless charging',
+      'Voice control'
+    ],
+    Fuel_Type: 'petrol',
+    color: 'blue',
+    engine: { type: 'Turbocharged Petrol', cc: 1199, torque: '170Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd3'),
+    maker: 'Ford',
+    model: 'Mustang',
+    year: 2019,
+    price: 35000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue',
+    engine: {
+      type: 'Naturally Aspirated Petrol V8',
+      cc: 4951,
+      torque: '556Nm'
+    }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd4'),
+    maker: 'Tesla',
+    model: 'Model 3',
+    year: 2024,
+    price: 45000,
+    available: true,
+    Fuel_Type: 'Electricity',
+    color: 'blue',
+    engine: { type: 'Electric', cc: null, torque: '450Nm' }
+  },
+  {
+    _id: ObjectId('6834b18ebc8208f7536c4bd7'),
+    maker: 'Hyundai',
+    model: 'Venue',
+    year: 2022,
+    price: 16000,
+    available: true,
+    engine: { type: 'Turbocharged Petrol', cc: 998, torque: '172Nm' },
+    color: 'White',
+    features: [ 'Touchscreen', 'Wireless Android Auto', 'Cruise Control' ]
+  }
+]
+car_details> db.cars.find ("engine.cc" : {$in:[ 998 , 4951]})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:26)
+
+> 1 | db.cars.find ("engine.cc" : {$in:[ 998 , 4951]})
+    |                           ^
+  2 |
+
+car_details> db.cars.find({ "engine.cc": { $in: [998, 4951] } })
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd3'),
+    maker: 'Ford',
+    model: 'Mustang',
+    year: 2019,
+    price: 35000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue',
+    engine: {
+      type: 'Naturally Aspirated Petrol V8',
+      cc: 4951,
+      torque: '556Nm'
+    }
+  },
+  {
+    _id: ObjectId('6834b18ebc8208f7536c4bd7'),
+    maker: 'Hyundai',
+    model: 'Venue',
+    year: 2022,
+    price: 16000,
+    available: true,
+    engine: { type: 'Turbocharged Petrol', cc: 998, torque: '172Nm' },
+    color: 'White',
+    features: [ 'Touchscreen', 'Wireless Android Auto', 'Cruise Control' ]
+  }
+]
+car_details> db.cars.find({ "engine.cc": { $nin: [998, 4951] } })
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd0'),
+    maker: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 20000,
+    available: true,
+    Fuel_Type: 'Petrol',
+    color: 'blue',
+    engine: { type: 'Naturally Aspirated Petrol', cc: 1798, torque: '173Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd1'),
+    maker: 'Honda',
+    model: 'Civic',
+    year: 2020,
+    price: 22000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue',
+    engine: { type: 'Turbocharged Petrol', cc: 1498, torque: '220Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd2'),
+    maker: 'Tata',
+    model: 'Nexon',
+    year: 2023,
+    price: 15000,
+    available: true,
+    feature: [
+      'reverse camera',
+      'ventilated seats',
+      'display',
+      'Wireless charging',
+      'Voice control'
+    ],
+    Fuel_Type: 'petrol',
+    color: 'blue',
+    engine: { type: 'Turbocharged Petrol', cc: 1199, torque: '170Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd4'),
+    maker: 'Tesla',
+    model: 'Model 3',
+    year: 2024,
+    price: 45000,
+    available: true,
+    Fuel_Type: 'Electricity',
+    color: 'blue',
+    engine: { type: 'Electric', cc: null, torque: '450Nm' }
+  }
+]
+car_details> db.cars.find(
+... {
+... $and:[
+... {Fuel_Type :"Diesel"},
+... {"engine.type":"Turbocharged"},
+... ]
+... }
+... )
+
+car_details> db.cars.find()
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd0'),
+    maker: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 20000,
+    available: true,
+    Fuel_Type: 'Petrol',
+    color: 'blue',
+    engine: { type: 'Naturally Aspirated Petrol', cc: 1798, torque: '173Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd1'),
+    maker: 'Honda',
+    model: 'Civic',
+    year: 2020,
+    price: 22000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue',
+    engine: { type: 'Turbocharged Petrol', cc: 1498, torque: '220Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd2'),
+    maker: 'Tata',
+    model: 'Nexon',
+    year: 2023,
+    price: 15000,
+    available: true,
+    feature: [
+      'reverse camera',
+      'ventilated seats',
+      'display',
+      'Wireless charging',
+      'Voice control'
+    ],
+    Fuel_Type: 'petrol',
+    color: 'blue',
+    engine: { type: 'Turbocharged Petrol', cc: 1199, torque: '170Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd3'),
+    maker: 'Ford',
+    model: 'Mustang',
+    year: 2019,
+    price: 35000,
+    available: false,
+    Fuel_Type: 'Diesel',
+
+car_details> db.cars.find().count
+[Function: count] AsyncFunction {
+  deprecated: true,
+  returnsPromise: true,
+  serverVersions: [ '0.0.0', '4.0.0' ],
+  apiVersions: [ 0, Infinity ],
+  topologies: [ 'ReplSet', 'Sharded', 'LoadBalanced', 'Standalone' ],
+  returnType: { type: 'unknown', attributes: {} },
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+car_details> db.cars.find().count()
+6
+car_details> db.cars.find({Fuel_type:"Petrol"}).count()
+0
+car_details> db.cars.find({Fuel_type:"Diesel"}).count()
+0
+car_details> db.cars.find({Fuel_type:"petrol"}).count()
+0
+car_details> db.cars.find({Fuel_type:"diesel"}).count()
+0
+car_details> db.cars.find()
+[
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd0'),
+    maker: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 20000,
+    available: true,
+    Fuel_Type: 'Petrol',
+    color: 'blue',
+    engine: { type: 'Naturally Aspirated Petrol', cc: 1798, torque: '173Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd1'),
+    maker: 'Honda',
+    model: 'Civic',
+    year: 2020,
+    price: 22000,
+    available: false,
+    Fuel_Type: 'Diesel',
+    alloys: 'Yes',
+    color: 'blue',
+    engine: { type: 'Turbocharged Petrol', cc: 1498, torque: '220Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd2'),
+    maker: 'Tata',
+    model: 'Nexon',
+    year: 2023,
+    price: 15000,
+    available: true,
+    feature: [
+      'reverse camera',
+      'ventilated seats',
+      'display',
+      'Wireless charging',
+      'Voice control'
+    ],
+    Fuel_Type: 'petrol',
+    color: 'blue',
+    engine: { type: 'Turbocharged Petrol', cc: 1199, torque: '170Nm' }
+  },
+  {
+    _id: ObjectId('68336253bc8208f7536c4bd3'),
+    maker: 'Ford',
+    model: 'Mustang',
+    year: 2019,
+    price: 35000,
+    available: false,
+    Fuel_Type: 'Diesel',
+
+car_details> db.cars.find({Fuel_Type : "Diesel"}).count()
+2
+car_details> db.cars.find({}{_id : 0 , model : 1}).count()
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:15)
+
+> 1 | db.cars.find({}{_id : 0 , model : 1}).count()
+    |                ^
+  2 |
+
+car_details> db.cars.find({}{_id:0 , model:1}).count()
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:15)
+
+> 1 | db.cars.find({}{_id:0 , model:1}).count()
+    |                ^
+  2 |
+
+car_details> db.cars.find({},{_id:0 , model:1}).count()
+6
+car_details> db.cars.find({},{_id:0 , model:1})
+[
+  { model: 'Corolla' },
+  { model: 'Civic' },
+  { model: 'Nexon' },
+  { model: 'Mustang' },
+  { model: 'Model 3' },
+  { model: 'Venue' }
+]
+car_details> db.cars.find({},{_id : 0 , model : 1})
+[
+  { model: 'Corolla' },
+  { model: 'Civic' },
+  { model: 'Nexon' },
+  { model: 'Mustang' },
+  { model: 'Model 3' },
+  { model: 'Venue' }
+]
+car_details> db.cars.find({},{_id : 0 , model : 1}).sort("model:1")
+[
+  { model: 'Corolla' },
+  { model: 'Civic' },
+  { model: 'Nexon' },
+  { model: 'Mustang' },
+  { model: 'Model 3' },
+  { model: 'Venue' }
+]
+car_details> db.cars.find({},{_id : 0 , model : 1}).sort({"model:1"})
+Uncaught:
+SyntaxError: Unexpected token (1:54)
+
+> 1 | db.cars.find({},{_id : 0 , model : 1}).sort({"model:1"})
+    |                                                       ^
+  2 |
+
+car_details> db.cars.find({},{_id : 0 , model : 1}).sort({model:1})
+[
+  { model: 'Civic' },
+  { model: 'Corolla' },
+  { model: 'Model 3' },
+  { model: 'Mustang' },
+  { model: 'Nexon' },
+  { model: 'Venue' }
+]
+car_details> db.cars.find({},{_id : 0 , model : 1}).sort({maker:1})
+[
+  { model: 'Mustang' },
+  { model: 'Civic' },
+  { model: 'Venue' },
+  { model: 'Nexon' },
+  { model: 'Model 3' },
+  { model: 'Corolla' }
+]
+car_details> db.cars.find({},{_id : 0 , model : 1}).limit(2)
+[ { model: 'Corolla' }, { model: 'Civic' } ]
+car_details> db.cars.find({},{_id : 0 , model : 1}).skip(2)
+[
+  { model: 'Nexon' },
+  { model: 'Mustang' },
+  { model: 'Model 3' },
+  { model: 'Venue' }
+]
