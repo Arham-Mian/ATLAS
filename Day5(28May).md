@@ -348,3 +348,84 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda1        50G   20G   28G  42% /
 ```
 
+=============================================================================
+
+##  **Task 24: Understanding File Type Prefixes**
+
+### 🔹 Use the following command:
+
+```bash
+ls -l
+```
+
+You'll see something like:
+
+```
+-rw-r--r--  1 user user   1234 May 31 13:00 file.txt
+drwxr-xr-x  2 user user   4096 May 31 13:01 myfolder
+lrwxrwxrwx  1 user user     11 May 31 13:02 link -> file.txt
+```
+
+Let’s break down the prefixes:
+
+---
+
+| Prefix | Description                                                                                             |
+| ------ | ------------------------------------------------------------------------------------------------------- |
+| `-`    | **Regular file**: Normal files (text, executables, etc.)                                                |
+| `d`    | **Directory**: A folder that contains other files/directories                                           |
+| `l`    | **Symbolic link**: A shortcut or reference to another file or directory                                 |
+| `b`    | **Block special file**: Used for devices that read/write in blocks (e.g., hard disks)                   |
+| `c`    | **Character special file**: Used for devices that handle data one character at a time (e.g., keyboards) |
+| `p`    | **Named pipe (FIFO)**: Used for inter-process communication                                             |
+| `s`    | **Socket**: Another way for processes to communicate (used in networking)                               |
+
+---
+
+##  Examples to Try:
+
+### 1. Create a regular file:
+
+```bash
+touch regularfile.txt
+ls -l regularfile.txt
+# Output: starts with -
+```
+
+### 2. Create a directory:
+
+```bash
+mkdir testdir
+ls -ld testdir
+# Output: starts with d
+```
+
+### 3. Create a symbolic link:
+
+```bash
+ln -s regularfile.txt symlinkfile
+ls -l symlinkfile
+# Output: starts with l
+```
+
+### 4. View device files:
+
+```bash
+ls -l /dev/sda    # Block device: starts with b
+ls -l /dev/tty    # Character device: starts with c
+```
+
+### 5. Create a named pipe:
+
+```bash
+mkfifo mypipe
+ls -l mypipe
+# Output: starts with p
+```
+
+### 6. View socket (if exists):
+
+```bash
+ls -l /var/run/docker.sock
+# Output: starts with s
+```
