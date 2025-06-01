@@ -556,3 +556,129 @@ You can list as many filenames as needed, separated by spaces.
 
 =============================================================================
 
+## **Task 35: What Happens When You Run `cd /`?**
+
+```bash
+cd /
+```
+
+* This command takes you to the **root directory** of the Linux file system.
+* The root directory is the top-level directory (`/`) that contains all other directories like `bin`, `etc`, `home`, `usr`, etc.
+
+To confirm:
+
+```bash
+pwd
+```
+
+Output:
+
+```
+/
+```
+=============================================================================
+
+##  **Task 36: How to Go to the Home Directory**
+
+```bash
+cd ~
+```
+
+or simply:
+
+```bash
+cd
+```
+
+* Both commands return you to your **home directory**, e.g., `/home/username`.
+
+To confirm:
+
+```bash
+pwd
+```
+
+=============================================================================
+
+## **Task 37: Move to Another User’s Home Directory**
+
+```bash
+cd ~username
+```
+
+Replace `username` with the actual user's name.
+
+**Example:**
+
+```bash
+cd ~john
+```
+
+This will take you to the `/home/john` directory if:
+
+* The user `john` exists
+* You have permission to access their home directory
+
+=============================================================================
+
+## **Task 38: `chmod` Command – Use and Examples**
+
+### 📌 Purpose:
+
+`chmod` (change mode) is used to set **file or directory permissions** in Linux.
+
+### 🔹 Example 1: Give read, write, and execute permissions to the user
+
+```bash
+chmod u+rwx filename.txt
+```
+
+* `u` = user (owner)
+* `+rwx` = add read, write, execute
+
+---
+
+### 🔹 Example 2: Remove write permission from group
+
+```bash
+chmod g-w filename.txt
+```
+
+* `g` = group
+* `-w` = remove write permission
+
+---
+
+### 🔹 Example 3: Numeric Mode
+
+```bash
+chmod 755 filename.sh
+```
+
+| Value | Permission                     |
+| ----- | ------------------------------ |
+| `7`   | Read + Write + Execute (`rwx`) |
+| `5`   | Read + Execute (`r-x`)         |
+| `0`   | No permission (`---`)          |
+
+So `755` means:
+
+* Owner: rwx
+* Group: r-x
+* Others: r-x
+
+---
+
+### 🔹 View Permissions:
+
+```bash
+ls -l filename.txt
+```
+
+**Output:**
+
+```
+-rwxr-xr-x  1 user user 123 May 31 16:10 filename.txt
+```
+
+
