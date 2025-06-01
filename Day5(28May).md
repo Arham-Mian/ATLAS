@@ -429,3 +429,130 @@ ls -l mypipe
 ls -l /var/run/docker.sock
 # Output: starts with s
 ```
+
+Great! Here's a step-by-step guide to help you complete **Tasks 25 to 34** using correct Linux commands, just like the previous tasks — all clean, clear, and with examples (no emojis, no distractions).
+
+=============================================================================
+
+## **Task 25: Find All Files Ending with `.txt`**
+
+```bash
+ls *.txt
+```
+
+This lists all files in the current directory that end with `.txt`.
+
+=============================================================================
+
+##  **Task 26: Check All Hidden Files in Linux**
+
+```bash
+ls -a
+```
+
+* `ls` shows files.
+* `-a` includes hidden files (those starting with a dot `.`).
+
+=============================================================================
+
+## **Task 27: Difference Between `.` and `..` in Linux**
+
+* `.` refers to the **current directory**.
+* `..` refers to the **parent directory** (one level up).
+
+=============================================================================
+
+## **Task 28: Create a File Using `vi` Editor**
+
+### Steps:
+
+1. Open a file in `vi`:
+
+   ```bash
+   vi myfile.txt
+   ```
+2. Press `i` to enter **insert mode**.
+3. Type some content.
+4. Press `Esc` to leave insert mode.
+5. Press `Shift + ZZ` to **save and exit**.
+
+### Navigation keys inside `vi`:
+
+* `h`: move left
+* `l`: move right
+* `j`: move down
+* `k`: move up
+
+=============================================================================
+
+## **Task 29: Find the Number of Words in a File**
+
+```bash
+wc myfile.txt
+```
+
+### Example Output:
+
+```
+10 20 150 myfile.txt
+```
+
+Meaning:
+
+* **10** → number of lines
+* **20** → number of words
+* **150** → number of bytes
+* `myfile.txt` → file name
+
+=============================================================================
+
+## **Task 30: Use of `cat -b myfilename.txt`**
+
+```bash
+cat -b myfile.txt
+```
+
+This command displays the file **with line numbers**, but **only for non-blank lines**.
+
+=============================================================================
+
+## **Task 31: Use `wc` with 2 or More Files**
+
+```bash
+wc file1.txt file2.txt
+```
+
+It will display line, word, and byte counts for each file, and then a total.
+
+=============================================================================
+
+## **Task 32: Copy Content of One File to Another**
+
+```bash
+cp source.txt destination.txt
+```
+
+This copies the content of `source.txt` into `destination.txt`.
+
+=============================================================================
+
+## **Task 33: Rename a File Using `mv`**
+
+```bash
+mv oldfile.txt MYFILENEW.txt
+```
+
+This renames the file to `MYFILENEW.txt`.
+
+=============================================================================
+
+## **Task 34: Delete Multiple Files in Linux**
+
+```bash
+rm file1.txt file2.txt file3.txt
+```
+
+You can list as many filenames as needed, separated by spaces.
+
+=============================================================================
+
