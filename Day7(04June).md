@@ -100,3 +100,131 @@ Done, But unable to attach Screenshot because code was lengthy , please check th
 
 =============================================================================
 
+Task 8 : WAP to check the greater of 2 numbers
+
+Hint:
+Use if else
+
+If ( num1 > num2){
+	sout(“num1 is greater”);
+}
+Else {
+	sout(“num2 is greater”);
+}
+
+Done, But unable to attach Screenshot because code was lengthy , please check the file [here](https://github.com/Arham-Mian/ATLAS_Practice/blob/main/Java_Tasks_Day_7/Task8.java)
+
+=============================================================================
+
+Task 9 : WAP to check greater of 3 numbers 
+
+Done, But unable to attach Screenshot because code was lengthy , please check the file [here](https://github.com/Arham-Mian/ATLAS_Practice/blob/main/Java_Tasks_Day_7/Task9.java)
+
+=============================================================================
+
+Task 10 : 
+Wap to check if check week days 
+
+1  ===> sunday
+2 ===> monday 
+So on
+
+8 and above ===> invalid input
+
+Hint : use Switch case
+
+
+Done, But unable to attach Screenshot because code was lengthy , please check the file [here](https://github.com/Arham-Mian/ATLAS_Practice/blob/main/Java_Tasks_Day_7/Task10.java)
+
+=============================================================================
+
+Task 11 : Wap to check loginid and password validation
+
+Hint use while loop 
+
+Scanner sc = new Scanner(System.in);
+
+String loginid = “Prasunamba”
+String pwd = “12345867”
+Int Count = 0;
+
+While (loginid == “Prasunamba” && pwd == “12345867”){
+	sout(“ you have logged in for  ”+ count++ +” times”);
+	sout(“enter ur login id and password”);
+	loginid = sc.NextLine();
+	pwd = sc.NextLine();	
+}
+
+Done, But unable to attach Screenshot because code was lengthy , please check the file [here](https://github.com/Arham-Mian/ATLAS_Practice/blob/main/Java_Tasks_Day_7/Task11.java)
+
+
+=============================================================================
+
+Task 12 :  Wap to check loginid and password validation
+
+Hint use do while loop 
+
+Scanner sc = new Scanner(System.in);
+
+String loginid = “Prasunamba”
+String pwd = “12345867”
+Int Count = 0;
+
+While (loginid == “Prasunamba” && pwd == “12345867”){
+	sout(“ you have logged in for  ”+ count++ +” times”);
+	sout(“enter ur login id and password”);
+	loginid = sc.NextLine();
+	pwd = sc.NextLine();	
+}
+
+Done, But unable to attach Screenshot because code was lengthy , please check the file [here](https://github.com/Arham-Mian/ATLAS_Practice/blob/main/Java_Tasks_Day_7/Task12.java)
+
+=============================================================================
+
+Task 13 : Wap to display numbers from 10 to 1 .. skip 7 and 5.
+
+for(int i= 10; i >0; i–){
+	If ( i == 5 || i == 7){
+		Continue;
+	sout(i);
+}
+}
+
+
+Done, But unable to attach Screenshot because code was lengthy , please check the file [here](https://github.com/Arham-Mian/ATLAS_Practice/blob/main/Java_Tasks_Day_7/Task13.java)
+
+=============================================================================
+
+Task 14 : 
+Arrays:
+
+Try the below code and display the output… 
+Now play with it try to access arr of 5th index and see the output…and try to access arr of -1 index and see the output..
+
+package Arrays;
+
+public class Demo01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		char[] arr = {'a','e','i','o','u'};
+		System.out.println(arr);
+		String[] names = {"Meena", "Tina", "Veena", "heena"};
+		System.out.println(names[0]);
+		names[1]= "Reena";
+		System.out.println(names[1]);
+		System.out.println(names.length);
+		System.out.println(names[4]); 
+		//Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException
+		
+	}
+
+}
+
+
+Done , Screenshot : 
+![Task 1](images/20.png)
+
+=============================================================================
+
+
