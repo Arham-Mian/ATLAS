@@ -163,9 +163,6 @@ ls Dir2
 cat > dummyfile.txt
 ```
 
-Then paste **2–3 paragraphs** of dummy text (e.g., from [lipsum.com](https://www.lipsum.com))
-To save and exit: press `Ctrl + D`
-
 =============================================================================
 
 ##  **Task 12: View the Top Part of the File Using `head`**
@@ -358,15 +355,15 @@ Filesystem      Size  Used Avail Use% Mounted on
 ls -l
 ```
 
-You'll see something like:
+Output
 
 ```
--rw-r--r--  1 user user   1234 May 31 13:00 file.txt
-drwxr-xr-x  2 user user   4096 May 31 13:01 myfolder
-lrwxrwxrwx  1 user user     11 May 31 13:02 link -> file.txt
+-rw-r--r--  1 Ubuntu Ubuntu   1234 May 31 13:00 file.txt
+drwxr-xr-x  2 Ubuntu Ubuntu   4096 May 31 13:01 myfolder
+lrwxrwxrwx  1 Ubuntu Ubuntu     11 May 31 13:02 link -> file.txt
 ```
 
-Let’s break down the prefixes:
+Break down of the prefixes:
 
 ---
 
@@ -552,7 +549,7 @@ This renames the file to `MYFILENEW.txt`.
 rm file1.txt file2.txt file3.txt
 ```
 
-You can list as many filenames as needed, separated by spaces.
+We can list as many filenames as needed, separated by spaces.
 
 =============================================================================
 
