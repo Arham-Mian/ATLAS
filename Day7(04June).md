@@ -55,13 +55,13 @@ Division of 2 numbers is ….
 Main ended
 
 
-Done, But unable to attach Screenshot because code was lengthy , please check the file [here](https://github.com/Arham-Mian/ATLAS_Practice/blob/main/Task4.java)
+Done, But unable to attach Screenshot because code was lengthy , please check the file [here](https://github.com/Arham-Mian/ATLAS_Practice/blob/main/Java_Tasks_Day_7/Task4.java)
 
 =============================================================================
 
 Task 5 : Write a program to check if a is greater or b.. Use ternary op
 
-Done, But unable to attach Screenshot because code was lengthy , please check the file [here](https://github.com/Arham-Mian/ATLAS_Practice/blob/main/Task5.java)
+Done, But unable to attach Screenshot because code was lengthy , please check the file [here](https://github.com/Arham-Mian/ATLAS_Practice/blob/main/Java_Tasks_Day_7/Task5.java)
 
 =============================================================================
 
@@ -86,7 +86,7 @@ For scanner … import java.util.scanner;
 Scanner sc = new Scanner(System.in);
 Id = sc.nexLine();
 
-Done, But unable to attach Screenshot because code was lengthy , please check the file [here](https://github.com/Arham-Mian/ATLAS_Practice/blob/main/Task6.java)
+Done, But unable to attach Screenshot because code was lengthy , please check the file [here](https://github.com/Arham-Mian/ATLAS_Practice/blob/main/Java_Tasks_Day_7/Task6.java)
 
 
 =============================================================================
@@ -95,7 +95,7 @@ Task 7 :
 Write a program to create a class named Customer 
 Call the customer class in Task007 class using an object
 
-Done, But unable to attach Screenshot because code was lengthy , please check the file [here](https://github.com/Arham-Mian/ATLAS_Practice/blob/main/Task7.java)
+Done, But unable to attach Screenshot because code was lengthy , please check the file [here](https://github.com/Arham-Mian/ATLAS_Practice/blob/main/Java_Tasks_Day_7/Task7.java)
 
 
 =============================================================================
